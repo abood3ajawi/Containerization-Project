@@ -1,0 +1,68 @@
+version: "3.9"
+services:
+ dbmysql:
+  image: mysql
+  volumes:
+        - mysqlVolume:/var/lib/mysql
+  environment:
+      MYSQL_ROOT_PASSWORD : 123456
+  
+  ports: 
+     - "3306:3306"
+  networks:
+      customnetwork:
+        ipv4_address: 10.2.0.4
+ dbmongo:
+  image: mongo:latest
+  volumes:
+        - mongoVolume:/var/lib/mongodb  
+  ports: 
+     - "27017:27017"
+  networks:
+      customnetwork:
+        ipv4_address: 10.2.0.3
+ web1:
+  build: ./dataEntry/
+  ports:  
+       - "9000:9000"
+  networks:
+      customnetwork:
+        ipv4_address: 10.2.0.9
+  restart: on-failure
+  depends_on: 
+           - dbmysql
+ web2:
+  build: ./Authentication/
+  ports: 
+      - "3000:3000"
+  networks:
+      customnetwork:
+        ipv4_address: 10.2.0.2
+ web3:
+  build: ./Analytics/
+  ports:
+       - "7000:7000"
+  depends_on: 
+           - dbmysql
+           - dbmongo
+  networks:
+      customnetwork:
+        ipv4_address: 10.2.0.5
+ web4:
+  build: ./ShowResults/
+  ports:  
+       - "5000:5000"
+  networks:
+      customnetwork:
+        ipv4_address: 10.2.0.10
+  depends_on:
+           - dbmongo
+networks:
+  customnetwork:
+    driver: bridge
+    ipam:
+     config:
+         - subnet: 10.2.0.0/16
+volumes:
+  mysqlVolume:
+  mongoVolume:

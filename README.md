@@ -10,4 +10,4 @@ Enter Data (your grades) →send data to mysql database →analytics
 service collect data from my sql then do sum analytics (max min average)
 for each record and send it to MongoDB service .
 </p>
-<h1>for more detials check <a href="https://github.com/abood3ajawi/Containerization-Project/blob/main/Technical_Report.pdf"> Report File</a></h1>
+<h1>for more detials check <a href="https://github.com/abood3ajawi/Containerization-Project/blob/main/Technical_Report.pdf"> Report File .</a></h1>

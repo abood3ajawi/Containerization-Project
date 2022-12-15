@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet"
+  href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
+  <title>html form</title>
+</head>
+<body>
+<div class="subscribe-container">
+  <form action="/grades" method="POST">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="number" name="grade1" pattern="[0-9]" placeholder="grade1" required>
+    <input type="number" name="grade2" pattern="[0-9]" placeholder="grade2" required>
+    <input type="number" name="grade3" pattern="[0-9]" placeholder="grade3" required>
+    <input type="number" name="grade4" pattern="[0-9]" placeholder="grade4" required>
+    <input type="number" name="grade5" pattern="[0-9]" placeholder="grade5" required>
+    <input class="subscribe-button" type="submit" value="Subscribe">
+  </form>
+</div>
+</body>
+</html>
